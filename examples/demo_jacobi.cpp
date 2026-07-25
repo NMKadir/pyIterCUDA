@@ -4,11 +4,11 @@
 int main(){
 
     std::vector<std::vector<double>> A = {
-        {10, -1, 2},
-        {-1, 11, -1},
-        {2, -1, 10}
+        {4, 1, -1},
+        {2, 7, 1},
+        {1, -3, 12}
     };
-    std::vector<double> b = {9,8,22};
+    std::vector<double> b = {3,19,31};
 
     auto result = cusolve::jacobi_solve(A,b);
 
