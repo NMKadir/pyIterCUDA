@@ -45,11 +45,11 @@ namespace cusolve{
     {
         double *d_A, *d_b, *d_x_old, *d_x_new, *d_partial;
         size_t bytes = n*sizeof(double);
-        CUDA_CHECK(cudaMalloc(&d_A, n*bytes));
-        CUDA_CHECK(cudaMalloc(&d_b, bytes));
-        CUDA_CHECK(cudaMalloc(&d_x_old, bytes));
-        CUDA_CHECK(cudaMalloc(&d_x_new, bytes));
-        CUDA_CHECK(cudaMalloc(&d_partial, bytes));
+        CUDA_CHECK(cudaMalloc((void **)&d_A, n*bytes));
+        CUDA_CHECK(cudaMalloc((void **)&d_b, bytes));
+        CUDA_CHECK(cudaMalloc((void **)&d_x_old, bytes));
+        CUDA_CHECK(cudaMalloc((void **)&d_x_new, bytes));
+        CUDA_CHECK(cudaMalloc((void **)&d_partial, bytes));
 
         CUDA_CHECK(cudaMemcpy(d_A, A_flat.data(), n*bytes, cudaMemcpyHostToDevice));
         CUDA_CHECK(cudaMemcpy(d_b, b.data(), bytes, cudaMemcpyHostToDevice));
